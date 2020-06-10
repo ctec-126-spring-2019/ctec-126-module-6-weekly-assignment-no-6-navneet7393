@@ -3,6 +3,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
 body {
     font-family: 'Roboto', sans-serif;
+    background-image: url('../img/background.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+    background-blend-mode: color-dodge;
 }
 
 #container {
@@ -19,27 +25,33 @@ body {
 #actions {
     height: 30px;
     margin: 20px 10px;
+    font-size: larger;
+    -webkit-text-stroke: 0.2px rgb(255, 255, 255);
+    -webkit-text-fill-color: black;
 }
 
 img {
     width: 100px;
     border-radius: 8px;
     box-shadow: grey 3px 3px 3px;
+    background-color: white;
+    cursor: pointer;
 }
 
 button {
-    background: blueviolet;
+    background: rgb(0, 17, 248);
     color: white;
     border: 1px solid #dadada;
-    padding: 5px 10px;
+    padding: 10px 10px;
     opacity: 1;
     transition: 0.3s;
     margin-right: 10px;
+    border-radius: 12px;
 }
 
 button:hover {
     opacity: .6;
-    color: black;
+    color: white;
 }
 
 button:focus {
