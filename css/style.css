@@ -28,6 +28,12 @@ body {
     font-size: larger;
     -webkit-text-stroke: 0.2px rgb(255, 255, 255);
     -webkit-text-fill-color: black;
+    background-color: lightgray;
+    width: 400px;
+    padding-top: 5px;
+    border-radius: 10px;
+    padding-left: 30px;
+    border-style: black;
 }
 
 img {

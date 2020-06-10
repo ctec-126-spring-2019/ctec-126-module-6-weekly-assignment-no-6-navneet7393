@@ -109,7 +109,7 @@ function buildDeck() {
 }
 
 function clearActions() {
-    actions.innerHTML = ''
+    actions.innerHTML = 'Click on a card to turn it over.'
 }
 
 let deck = []
