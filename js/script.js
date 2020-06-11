@@ -18,26 +18,21 @@ class PlayingCard {
         // setting img variable
         this.img = `img/${face}_of_${suit}.png`
 
+        // addEventListener to the element for a click event to change the state if the card is switched 
         this.element.addEventListener('click', () => {
             if (this.state == 0) {
+                // To switch out the this.element.src to face up 
                 this.element.src = this.img
                 this.state = 1
-            } else if (this.state == 1){
+            } else if (this.state == 1) {
+                // To show the back of the card use 'img/back.png'
                 this.element.src = 'img/back.jpg'
                 this.state = 0
             }
-            /*
-            - The event listener should be for a click event
-            - The event listener should have logic to switch out the this.element.src
-            - It should also change the state if the card is flipped (this.state 0 or 1)
-            - To show the back of the card use 'img/back.png'
-            */
-
-            // your code goes here (remove this comment once you have added your code)
         })
     }
 
-    
+
     // shows the faces of the card
     showFaces() {
         this.element.src = this.img
@@ -59,16 +54,11 @@ function createCardImage() {
 }
 
 function displayDeck() {
-    deck.forEach(card=>{
+    // A loop that iterates through each card in the deck array
+    deck.forEach(card => {
+        // append the card.element to the container
         container.appendChild(card.element)
     })
-    /*
-    - Create a loop that iterates through each card in the deck array
-    - in the loop, append the card.element to the container
-    - Use a forEach with an arrow function
-    */
-
-    // your code goes here (remove this comment once you have added your code)
 }
 
 function shuffleDeck() {
@@ -92,10 +82,14 @@ function removeCard() {
     }
 }
 
+// create build deck functions
 function buildDeck() {
+    // assign array of card names to the constant suits
     const suits = ['hearts', 'spades', 'diamonds', 'clubs']
+    // assign array of card type to the constant faces
     const faces = ['ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king']
 
+    // create an array to go in the suits array
     suits.forEach(suit => {
         faces.forEach(face => {
             // Calling the createImage function and assigning the return img to const image
@@ -108,10 +102,13 @@ function buildDeck() {
     })
 }
 
+// create clear actions function
 function clearActions() {
+    // make the inner html of the action div to the following message
     actions.innerHTML = 'Click on a card to turn it over.'
 }
 
+// make a empty deck array 
 let deck = []
 
 // get the handle of the ID's
@@ -123,14 +120,21 @@ const newDeckBtn = document.querySelector('#newdeck')
 const showFacesBtn = document.querySelector('#showfaces')
 const showBacksBtn = document.querySelector('#showbacks')
 
+// add eventListenr to the shuffle button
 shuffleBtn.addEventListener('click', () => {
+    // Display in the action div which has a id of actions
     actions.innerHTML = 'The deck of cards has been shuffled.'
+    // clear the container html
     container.innerHTML = ''
+    //shuffle the deck
     shuffleDeck()
+    // display deck with a timeout of .5 seconds
     setTimeout(displayDeck, 500)
+    // clear actions with the time out of 3 seconds
     setTimeout(clearActions, 5000)
 })
 
+// add eventListener to the remove button with a click event
 removeBtn.addEventListener('click', () => {
     actions.innerHTML = 'A card was removed.'
     // calls the remove card function
@@ -139,15 +143,23 @@ removeBtn.addEventListener('click', () => {
     setTimeout(clearActions, 5000)
 })
 
+// add event listener to the new deck button to a click event
 newDeckBtn.addEventListener('click', () => {
+    // change the inner html of the actions to the message 
     actions.innerHTML = 'A new deck of cards has been created.'
+    // empty deck array
     deck = []
+    // clear container
     container.innerHTML = ''
+    // call the build deck function
     buildDeck()
+    // setting timeout of display deck to .5
     setTimeout(displayDeck, 500)
+    // setting timeout of display deck to 5 seconds
     setTimeout(clearActions, 5000)
 })
 
+// addEventListener to showface button fr
 showFacesBtn.addEventListener('click', () => {
     actions.innerHTML = 'All card faces are now showing.'
     deck.forEach(card => {
@@ -162,6 +174,7 @@ showBacksBtn.addEventListener('click', () => {
     })
 })
 
+// call the functions
 buildDeck()
 shuffleDeck()
 displayDeck()
